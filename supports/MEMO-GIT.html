@@ -1,5 +1,6 @@
-<!doctype html><html lang="fr"><meta charset="utf-8"><title>MEMO-GIT</title><style>body{max-width:880px;margin:55px auto;padding:20px;font:18px/1.65 Arial;color:#17333d;background:#f5f3ea}h1,h2{color:#146c5a}h2{margin-top:2em}pre{white-space:pre-wrap;background:#e4eee8;padding:20px;border-radius:12px;font-size:15px}code{font-family:Consolas,monospace}a{color:#146c5a}@media print{body{margin:0;background:white}}</style><h1>Git &amp; GitHub  :  Mémo de travail</h1>
-<p>Git Bash · Les noms en MAJUSCULES sont à remplacer</p>
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>MEMO-GIT</title><style>*{box-sizing:border-box}body{max-width:880px;margin:35px auto;padding:22px;font:18px/1.65 Arial;color:#17333d;background:#f5f7fa}h1,h2{color:#147fa6}h2{margin-top:2em}pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#e5f1f6;padding:18px;border-radius:6px;font-size:15px}code{font-family:Consolas,monospace}a{color:#147fa6;overflow-wrap:anywhere}img{max-width:100%;height:auto}@media print{body{margin:0;background:white}}</style></head><body><img src="visuels/logo-ensup.png" alt="ENSUP Business School" width="180"><h1>Git et GitHub : mémo de travail</h1>
+<p>ENSUP Business School · Git Bash · Les noms en MAJUSCULES sont à remplacer</p>
+<p>Pour cette journée : cloner votre fork, puis travailler dans rendus/IDENTIFIANT. origin désigne votre fork ; upstream désigne le dépôt AbidHamza/ensup-git-github-2026. Le clone contient déjà l'historique initial.</p>
 <h2>Le cycle local</h2>
 <pre><code class="language-bash">git status                         # Observer l'état
 git diff                           # Travail vs index
@@ -36,7 +37,7 @@ git pull --ff-only                  # Mettre à jour sans divergence
 </code></pre>
 <p>Si <code>pull --ff-only</code> refuse, inspecter l'histoire avec le formateur. Ne pas répondre par un push forcé.</p>
 <h2>Collaborer sur GitHub</h2>
-<p>Branche → commits → push → PR vers main → revue → correction → fusion → pull sur chaque PC. Dans la PR, <strong>base reçoit compare</strong>. Une PR n'est ni une commande Git, ni une publication automatique sur un site web.</p>
+<p>Branche → commits → push → PR vers main → revue → correction → fusion → pull sur chaque PC. Dans la PR, <strong>base reçoit compare</strong>. Pour la PR de travail, base et head repository sont votre fork. Pour la PR de collecte, base est le dépôt AbidHamza et head votre fork, tous deux sur main. Garder cette PR ouverte et pousser les nouveaux commits sur main actualise le rendu. Choisir Create a merge commit pour conserver les commits.</p>
 <h2>Réparer avec intention</h2>
 <pre><code class="language-bash">git restore --staged FICHIER  # Retirer de l'index, garder le travail
 git restore FICHIER           # Jeter les écarts travail/index
@@ -62,4 +63,4 @@ git tag -a v1.0 -m &quot;Version livree&quot;
 git push origin v1.0
 </code></pre>
 <p>Par défaut, stash ne prend pas les fichiers non suivis ; <code>-u</code> les inclut. Rebase, cherry-pick et reflog sont des prolongements, hors évaluation. Ne pas expérimenter une réécriture d'historique partagé sans comprendre ses conséquences.</p>
-<p>Documentation : https://git-scm.com/docs · https://docs.github.com</p></html>
+<p>Documentation : https://git-scm.com/docs · https://docs.github.com</p></body></html>

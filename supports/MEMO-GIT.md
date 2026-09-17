@@ -1,6 +1,8 @@
-# Git & GitHub  :  Mémo de travail
+# Git et GitHub : mémo de travail
 
-Git Bash · Les noms en MAJUSCULES sont à remplacer
+ENSUP Business School · Git Bash · Les noms en MAJUSCULES sont à remplacer
+
+Pour cette journée : cloner votre fork, puis travailler dans rendus/IDENTIFIANT. origin désigne votre fork ; upstream désigne le dépôt AbidHamza/ensup-git-github-2026. Le clone contient déjà l'historique initial.
 
 ## Le cycle local
 
@@ -55,7 +57,7 @@ Si `pull --ff-only` refuse, inspecter l'histoire avec le formateur. Ne pas répo
 
 ## Collaborer sur GitHub
 
-Branche → commits → push → PR vers main → revue → correction → fusion → pull sur chaque PC. Dans la PR, **base reçoit compare**. Une PR n'est ni une commande Git, ni une publication automatique sur un site web.
+Branche → commits → push → PR vers main → revue → correction → fusion → pull sur chaque PC. Dans la PR, **base reçoit compare**. Pour la PR de travail, base et head repository sont votre fork. Pour la PR de collecte, base est le dépôt AbidHamza et head votre fork, tous deux sur main. Garder cette PR ouverte et pousser les nouveaux commits sur main actualise le rendu. Choisir Create a merge commit pour conserver les commits.
 
 ## Réparer avec intention
 
