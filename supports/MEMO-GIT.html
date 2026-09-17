@@ -1,0 +1,65 @@
+<!doctype html><html lang="fr"><meta charset="utf-8"><title>MEMO-GIT</title><style>body{max-width:880px;margin:55px auto;padding:20px;font:18px/1.65 Arial;color:#17333d;background:#f5f3ea}h1,h2{color:#146c5a}h2{margin-top:2em}pre{white-space:pre-wrap;background:#e4eee8;padding:20px;border-radius:12px;font-size:15px}code{font-family:Consolas,monospace}a{color:#146c5a}@media print{body{margin:0;background:white}}</style><h1>Git &amp; GitHub  :  Mémo de travail</h1>
+<p>Git Bash · Les noms en MAJUSCULES sont à remplacer</p>
+<h2>Le cycle local</h2>
+<pre><code class="language-bash">git status                         # Observer l'état
+git diff                           # Travail vs index
+git add README.md                  # Préparer ce fichier
+git diff --cached                  # Index vs dernier commit
+git commit -m &quot;docs: preciser le but&quot;
+git log --oneline                   # Lire l'historique
+git show HEAD                      # Voir le dernier commit
+</code></pre>
+<p>Enregistrer dans l'éditeur ≠ préparer avec add ≠ commiter ≠ publier avec push.</p>
+<h2>Démarrer</h2>
+<pre><code class="language-bash">git init -b main                    # Dans un dossier neuf
+git config user.name &quot;Prenom Nom&quot;   # Identité locale
+git config user.email &quot;ADRESSE&quot;
+git clone URL_DU_DEPOT              # Autre cas : dépôt existant
+</code></pre>
+<p>Choisir <strong>init</strong> pour démarrer un dépôt local, ou <strong>clone</strong> pour récupérer un dépôt existant. Ne pas lancer les deux comme une recette unique.</p>
+<h2>Travailler sur une branche</h2>
+<pre><code class="language-bash">git branch
+git switch -c feature/ma-tache
+git switch main
+git merge feature/ma-tache          # main reçoit la branche
+git log --graph --oneline --all
+</code></pre>
+<p>Dans les exercices, partir d'un état propre avant de changer de branche. Une fusion fast-forward n'a pas besoin de créer un nouveau commit.</p>
+<h2>Partager</h2>
+<pre><code class="language-bash">git remote -v
+git remote add origin URL_DU_DEPOT  # Une fois, si origin absent
+git push -u origin main            # Premier envoi de main
+git push -u origin feature/ma-tache # Premier envoi de la branche
+git fetch origin                   # Récupérer sans intégrer
+git switch main
+git pull --ff-only                  # Mettre à jour sans divergence
+</code></pre>
+<p>Si <code>pull --ff-only</code> refuse, inspecter l'histoire avec le formateur. Ne pas répondre par un push forcé.</p>
+<h2>Collaborer sur GitHub</h2>
+<p>Branche → commits → push → PR vers main → revue → correction → fusion → pull sur chaque PC. Dans la PR, <strong>base reçoit compare</strong>. Une PR n'est ni une commande Git, ni une publication automatique sur un site web.</p>
+<h2>Réparer avec intention</h2>
+<pre><code class="language-bash">git restore --staged FICHIER  # Retirer de l'index, garder le travail
+git restore FICHIER           # Jeter les écarts travail/index
+git revert --no-edit HEAD     # Inverser le dernier commit simple
+git merge --abort             # Abandonner une fusion en cours
+</code></pre>
+<p>Avant <code>restore FICHIER</code>, relire <code>diff</code> : les changements non préparés seront remplacés. <code>revert</code> ajoute un commit ; il peut demander une résolution de conflit. Pour la désindexation ci-dessus, un commit initial doit déjà exister.</p>
+<h2>Résoudre un conflit</h2>
+<ol>
+<li>Lire <code>status</code> et ouvrir le fichier.</li>
+<li>Comprendre les deux propositions, convenir du résultat.</li>
+<li>Retirer tous les marqueurs et enregistrer le contenu voulu.</li>
+<li><code>git add FICHIER</code>, puis <code>git commit -m "fix: resoudre le conflit"</code>.</li>
+<li>Vérifier le résultat, <code>status</code> et le graphe ; pousser si nécessaire.</li>
+</ol>
+<h2>Repères utiles</h2>
+<p><code>HEAD</code> : position actuelle. <code>origin</code> : nom du remote. <code>origin/main</code> : repère local du distant, actualisé notamment par fetch. <code>.gitignore</code> : règles pour les fichiers non suivis, pas un effacement de l'historique. <code>q</code> : quitter la vue paginée.</p>
+<h2>Bonus facultatifs</h2>
+<pre><code class="language-bash">git stash push -m &quot;travail en cours&quot; # Met de côté le suivi modifié
+git stash list
+git stash pop                       # Réapplique ; conflit possible
+git tag -a v1.0 -m &quot;Version livree&quot;
+git push origin v1.0
+</code></pre>
+<p>Par défaut, stash ne prend pas les fichiers non suivis ; <code>-u</code> les inclut. Rebase, cherry-pick et reflog sont des prolongements, hors évaluation. Ne pas expérimenter une réécriture d'historique partagé sans comprendre ses conséquences.</p>
+<p>Documentation : https://git-scm.com/docs · https://docs.github.com</p></html>

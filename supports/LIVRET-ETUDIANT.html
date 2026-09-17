@@ -1,0 +1,327 @@
+<!doctype html><html lang="fr"><meta charset="utf-8"><title>LIVRET-ETUDIANT</title><style>body{max-width:880px;margin:55px auto;padding:20px;font:18px/1.65 Arial;color:#17333d;background:#f5f3ea}h1,h2{color:#146c5a}h2{margin-top:2em}pre{white-space:pre-wrap;background:#e4eee8;padding:20px;border-radius:12px;font-size:15px}code{font-family:Consolas,monospace}a{color:#146c5a}@media print{body{margin:0;background:white}}</style><h1>Git et GitHub : carnet de travaux pratiques</h1>
+<p>ENSUP Business School · Bachelor · 17 septembre 2026</p>
+<h2>Le projet : organiser la journée des associations</h2>
+<p>Vous préparez le dossier d'accueil d'une journée des associations ENSUP. Un nouvel étudiant doit y trouver où aller, à quelle heure et qui contacter. Le programme initial est incomplet : il manque un plan de repli, des indications d'accès et une vérification des horaires. Vous devrez aussi traiter une modification demandée en cours de journée.</p>
+<p>Vous produisez des fichiers Markdown, lisibles dans GitHub. Aucun framework n'est nécessaire. Les compétences évaluées portent sur les versions, les branches, la collaboration et le diagnostic. Votre binôme relit vos propositions ; chacun conserve son historique personnel et rend son propre travail.</p>
+<h2>Le parcours : 8 heures de travail</h2>
+<ol>
+<li>Mise en route et première copie : 45 min (20 min d'explication, 25 min d'atelier).</li>
+<li>Historique et index : 75 min (15 min de démo, 40 min de TP 1, 20 min d'enquête).</li>
+<li>Branches et intégration : 60 min (15 min de démo, 30 min de TP 2, 15 min de comparaison).</li>
+<li>Publication et collecte : 60 min (10 min de démo, 35 min de TP 3, 15 min de diagnostic).</li>
+<li>Revue de code : 60 min (10 min de démo, 40 min de TP 4, 10 min de retour collectif).</li>
+<li>Réparer et synchroniser : 75 min (10 min de démo, 45 min de TP 5, 20 min d'incident distant).</li>
+<li>Livraison d'une version : 75 min (mission avec changement de consigne et preuves individuelles).</li>
+<li>QCM et explication individuelle : 30 min (20 min de QCM, 10 min d'explications croisées).</li>
+</ol>
+<p>Total : 480 minutes, hors pauses. Chaque durée comprend lecture, manipulation, contrôle et explication. Les activités d'enquête font partie de la journée ; ce ne sont pas des bonus facultatifs.</p>
+<h2>Les trois adresses à utiliser</h2>
+<p>Dépôt de classe : https://github.com/AbidHamza/ensup-git-github-2026</p>
+<p>QCM : https://abid-hamza.com/ensup-git/qcm/</p>
+<p>Collecte : https://github.com/AbidHamza/ensup-git-github-2026/pulls</p>
+<p>Les rendus GitHub sont publics. Utilisez votre identifiant GitHub et votre adresse noreply exacte (Settings &gt; Emails), sans ajouter téléphone, adresse personnelle ou mot de passe. Le QCM conserve vos résultats dans l'espace formateur, pas dans le dépôt public.</p>
+<h2>Comment lire les commandes</h2>
+<p>Ouvrez <strong>Git Bash</strong>, pas PowerShell. Tapez une commande à la fois. <code>pwd</code> indique le dossier, <code>ls</code> liste son contenu, <code>cd ..</code> remonte d'un niveau, <code>q</code> quitte le journal paginé. Enregistrez vos fichiers dans l'éditeur avant de consulter Git. Vérifiez les extensions Windows : README.md, pas README.md.txt.</p>
+<p>Dans les commandes, remplacez <code>IDENTIFIANT</code> par votre identifiant GitHub, exactement écrit, sans espace. Les textes en MAJUSCULES sont à remplacer. Ne recopiez pas le symbole <code>$</code> des captures. Un message d'erreur est un résultat à lire : ne passez pas à la suite tant que le contrôle demandé n'est pas obtenu.</p>
+<p>Le cours, la documentation et le mémo sont autorisés pendant les TP. À chaque contrôle, l'étudiant au clavier explique son action au binôme, qui vérifie le résultat. Chacun effectue les manipulations sur sa propre copie.</p>
+<h2>Atelier 0 : préparer sa copie · 25 minutes</h2>
+<h3>A. Fork : votre copie sur GitHub · 7 minutes</h3>
+<p>Connectez-vous à GitHub. Ouvrez le dépôt de classe, cliquez <strong>Fork</strong>, choisissez votre compte comme propriétaire et conservez le nom <code>ensup-git-github-2026</code>. Cliquez <strong>Create fork</strong>. Vérifiez que le haut de page affiche <strong>votre compte</strong>, avec la mention de provenance du dépôt AbidHamza.</p>
+<p>Cette copie vous donne le droit de pousser chez vous. Vous proposerez ensuite vos commits au formateur par pull request, sans avoir besoin d'un accès en écriture à son dépôt.</p>
+<h3>B. Clone : votre copie sur le PC · 8 minutes</h3>
+<p>Ouvrez Git Bash dans votre dossier de travail (hors de tout autre dépôt).</p>
+<pre><code class="language-bash">git --version
+git clone https://github.com/IDENTIFIANT/ensup-git-github-2026.git
+cd ensup-git-github-2026
+git config user.name &quot;IDENTIFIANT&quot;
+git config user.email &quot;VOTRE_ADRESSE_NOREPLY_EXACTE&quot;
+git remote add upstream https://github.com/AbidHamza/ensup-git-github-2026.git
+git remote -v
+git status
+</code></pre>
+<p><strong>Attendu :</strong> main est la branche courante ; origin pointe vers votre compte et upstream vers AbidHamza. La configuration de l'auteur n'est pas une connexion GitHub. Le clone a déjà un historique : ne lancez pas git init ici.</p>
+<h3>C. Votre espace de travail · 10 minutes</h3>
+<pre><code class="language-bash">mkdir -p rendus/IDENTIFIANT
+cd rendus/IDENTIFIANT
+</code></pre>
+<p>Gardez ce dossier courant pour les TP, sauf indication explicite. Dans l'éditeur, créez votre <code>README.md</code> dans ce dossier avec :</p>
+<pre><code class="language-markdown"># Journée des associations ENSUP
+Un guide pour préparer sa première visite sur le campus.
+</code></pre>
+<p>Créez aussi <code>journal.md</code> : titre « Carnet de bord », identifiant GitHub, puis une rubrique « Mes preuves ». Vous compléterez ce carnet après chaque atelier avec les commandes observées et vos explications. N'y mettez pas les réponses au QCM.</p>
+<p><strong>Contrôle :</strong> <code>pwd</code> se termine par votre identifiant ; <code>git status --short</code> signale les deux nouveaux fichiers ; <code>git log -1 --oneline</code> montre le commit de départ du formateur.</p>
+<p><strong>Dépannage :</strong> dépôt introuvable : relisez l'URL de votre fork ; dossier déjà présent : ne clonez pas dedans, ouvrez la copie existante ; git introuvable : demandez l'installation au formateur. Si GitHub est inaccessible, le formateur fournit la copie de secours et reprend l'envoi avec vous ensuite.</p>
+<h2>TP 1  :  Construire un historique utile</h2>
+<p><strong>40 minutes · Individuel puis vérification avec un voisin.</strong></p>
+<p><strong>Départ :</strong> atelier 0 terminé, dans <code>rendus/IDENTIFIANT</code>. <strong>Arrivée :</strong> au moins trois commits utiles, un fichier ignoré et un dépôt propre après avoir commité le carnet.</p>
+<h3>Étape A  :  Le premier commit · 7 minutes</h3>
+<ol>
+<li>Exécutez <code>git status</code> et expliquez l'état du fichier.</li>
+<li>Préparez seulement <code>README.md</code>.</li>
+<li>Relisez ce que vous préparez.</li>
+<li>Enregistrez un premier commit.</li>
+</ol>
+<pre><code class="language-bash">git add README.md
+git diff --cached
+git commit -m &quot;docs: presenter la journée ENSUP&quot;
+git log --oneline
+git status
+</code></pre>
+<p><strong>À écrire :</strong> que fait <code>add</code> que ne fait pas l'enregistrement dans l'éditeur ?</p>
+<p>Réponse : <strong><em>_</em></strong><strong><em>_</em></strong><strong><em>_</em></strong><strong><em>_</em></strong><strong><em>_</em></strong><strong><em>_</em></strong><strong><em>_</em></strong><strong><em>_</em></strong>___</p>
+<h3>Étape B  :  Le piège de l'index · 12 minutes</h3>
+<ol>
+<li>Ajoutez <code>Entrée gratuite.</code> à la fin de <code>README.md</code>. Enregistrez.</li>
+<li>Exécutez <code>git diff</code>, puis <code>git add README.md</code>.</li>
+<li>Ajoutez maintenant <code>Inscription sur place.</code> au fichier. Enregistrez <strong>sans refaire add</strong>.</li>
+<li>Exécutez les trois commandes suivantes :</li>
+</ol>
+<pre><code class="language-bash">git status --short
+git diff --cached
+git diff
+</code></pre>
+<p><strong>Prédiction avant de continuer :</strong> si vous commitez maintenant, quelle phrase manque dans le commit ? Pourquoi ?</p>
+<p>Réponse : <strong><em>_</em></strong><strong><em>_</em></strong><strong><em>_</em></strong><strong><em>_</em></strong><strong><em>_</em></strong><strong><em>_</em></strong><strong><em>_</em></strong><strong><em>_</em></strong>___</p>
+<ol>
+<li>Refaites <code>git add README.md</code> pour inclure les deux phrases, puis créez le deuxième commit :</li>
+</ol>
+<pre><code class="language-bash">git commit -m &quot;docs: preciser les conditions d acces&quot;
+git show HEAD
+</code></pre>
+<p><strong>Attendu :</strong> <code>show</code> contient les deux phrases ajoutées. Les identifiants de vos commits sont propres à votre dépôt ; il ne faut pas reproduire ceux des slides.</p>
+<h3>Étape C  :  Choisir ce qui reste local · 9 minutes</h3>
+<p>Créez <code>.gitignore</code> avec :</p>
+<pre><code class="language-text">.env
+notes-privees.txt
+</code></pre>
+<p>Créez <code>.env</code> avec <strong>uniquement</strong> <code>DEMO=FAUSSE_VALEUR</code>. N'utilisez aucun vrai mot de passe. Créez aussi <code>notes-privees.txt</code> contenant une note de test.</p>
+<pre><code class="language-bash">git status --short
+git check-ignore -v .env
+git add .gitignore
+git commit -m &quot;chore: ignorer les fichiers locaux&quot;
+</code></pre>
+<p><strong>Attendu :</strong> <code>.gitignore</code> est versionné. <code>.env</code> et <code>notes-privees.txt</code> ne figurent pas parmi les fichiers à commiter. <code>.gitignore</code> n'enlève pas de l'historique un fichier déjà suivi.</p>
+<p>Avant la vérification, complétez <code>journal.md</code> avec l'explication de l'index, puis <code>git add journal.md</code> et <code>git commit -m "docs: expliquer le fonctionnement de l index"</code>. Ce commit de preuve s'ajoute aux trois commits du projet.</p>
+<h3>Étape D  :  Vérification croisée · 7 minutes</h3>
+<p>Montrez à votre voisin :</p>
+<pre><code class="language-bash">git log --oneline
+git status
+git ls-files
+</code></pre>
+<p>Il vérifie trois commits avec des messages utiles, un dépôt propre après avoir commité le carnet et l'absence de <code>.env</code> dans <code>ls-files</code>. Expliquez ensemble la différence entre fichier enregistré, index et commit.</p>
+<h3>Trace individuelle · 5 minutes</h3>
+<p>Conservez dans votre fiche de rendu un court extrait du log et votre explication de l'index. Ne placez pas les captures dans le dépôt du projet si cela n'est pas demandé.</p>
+<p><strong>Aides graduées :</strong> 1. Commencez par <code>status</code>. 2. Comparez <code>diff</code> et <code>diff --cached</code>. 3. Demandez au formateur de vous aider à localiser le problème, sans lui déléguer toute la manipulation.</p>
+<p><strong>Bonus :</strong> modifiez deux paragraphes, puis explorez <code>git add -p</code>. Expliquez pourquoi préparer seulement une partie peut aider à créer des commits cohérents.</p>
+<h2>Enquête 1 : le fichier disparu du diff · 20 minutes</h2>
+<p><strong>Situation :</strong> vous créez <code>acces.md</code> dans votre dossier de rendu. Son contenu : « Entrée visiteurs : porte principale. Présenter son invitation à l'accueil. » Votre voisin affirme que git diff doit montrer ce texte.</p>
+<ol>
+<li>Pendant 3 min, écrivez votre prédiction avant d'exécuter git diff.</li>
+<li>Pendant 5 min, comparez <code>git status --short</code>, <code>git diff</code>, puis <code>git add acces.md</code> et <code>git diff --cached</code>.</li>
+<li>Pendant 5 min, expliquez pourquoi un fichier non suivi n'apparaît pas dans le diff ordinaire. Commitez le fichier.</li>
+<li>Pendant 7 min, retrouvez le commit d'ajout avec <code>git log --oneline -- acces.md</code>, puis <code>git show IDENTIFIANT_DU_COMMIT</code>. Ajoutez la preuve et votre explication au carnet, commitez-le.</li>
+</ol>
+<p><strong>Réussite :</strong> le binôme sait retrouver une modification à partir du nom du fichier, sans parcourir toute l'histoire à la main.</p>
+<h2>TP 2  :  Une branche pour une évolution</h2>
+<p><strong>30 minutes · Travail individuel, prédictions en binôme.</strong></p>
+<p><strong>Départ :</strong> TP 1 terminé sur <code>main</code>, dépôt propre. <strong>Objectif :</strong> ajouter le programme via une branche.</p>
+<h3>1. Isoler le travail · 5 minutes</h3>
+<pre><code class="language-bash">git status
+git switch -c feature/programme
+git branch
+</code></pre>
+<p>Créez <code>programme.md</code> :</p>
+<pre><code class="language-markdown"># Programme
+09h00 : accueil  :  Hall A
+10h00 : découverte des associations  :  Salle 1
+11h00 : atelier découverte  :  Salle 2
+</code></pre>
+<h3>2. Enregistrer l'évolution · 8 minutes</h3>
+<pre><code class="language-bash">git add programme.md
+git diff --cached
+git commit -m &quot;feat: ajouter le programme&quot;
+</code></pre>
+<p>Avant de revenir sur <code>main</code>, prédisez quels fichiers seront visibles.</p>
+<h3>3. Observer puis intégrer · 10 minutes</h3>
+<pre><code class="language-bash">git switch main
+ls
+git merge feature/programme
+git log --graph --oneline --all
+git status
+</code></pre>
+<p><strong>Attendu :</strong> avant la fusion, <code>programme.md</code> n'existe pas sur <code>main</code>. Après, il est présent. Une fusion <strong>fast-forward</strong> est normale si <code>main</code> n'a pas avancé depuis la création de la branche. Dans ce cas, aucun nouveau commit de fusion n'est nécessaire.</p>
+<h3>4. Expliquer · 7 minutes</h3>
+<p>Votre binôme doit pouvoir répondre : sur quelle branche faut-il être pour intégrer une évolution <strong>dans main</strong> ? Quelle commande prouve que le contenu est présent ? Dessinez le graphe avant et après.</p>
+<p><strong>Aide :</strong> <code>git branch</code> marque la branche courante avec <code>*</code>. Si <code>switch</code> refuse, ne supprimez rien : inspectez <code>status</code> et enregistrez le travail utile.</p>
+<p><strong>Bonus :</strong> créez deux branches depuis le même point, modifiez des fichiers différents puis fusionnez-les. Observez que divergence ne signifie pas nécessairement conflit.</p>
+<h2>Enquête 2 : divergence sans conflit · 15 minutes</h2>
+<p>Depuis main propre, créez <code>feature/accessibilite</code>, créez <code>accessibilite.md</code> avec « Accès de plain-pied : entrée principale. », puis add et commit. Revenez sur main, ajoutez « Accueil des visiteurs à partir de 09h00. » à README.md, puis add et commit. Les deux branches ont maintenant avancé sur des fichiers différents.</p>
+<pre><code class="language-bash">git log --graph --oneline --all
+git merge --no-ff feature/accessibilite -m &quot;merge: ajouter les indications d accessibilite&quot;
+git show --no-patch --format=&quot;%h %p %s&quot; HEAD
+git status
+</code></pre>
+<p>Répartissez le temps : 6 min de création, 4 min de fusion, 5 min de dessin et d'explication. Comparez avec le fast-forward du TP 2. Cette fois le commit de fusion a deux parents ; la divergence n'a pas provoqué de conflit car les fichiers modifiés sont distincts. Notez les deux identifiants de parents dans le carnet et commitez-le.</p>
+<h2>TP 3 : envoyer au formateur · 35 minutes</h2>
+<h3>A. Publier vos commits dans votre fork · 10 minutes</h3>
+<p>Revenez sur main et terminez les modifications du carnet. <code>git status</code> doit annoncer un arbre propre. Vérifiez origin : il doit désigner votre propre compte.</p>
+<pre><code class="language-bash">git switch main
+git remote -v
+git log -3 --oneline
+git push -u origin main
+</code></pre>
+<p>Suivez la connexion proposée par le navigateur ou le gestionnaire d'identifiants. Le mot de passe du site ne remplace pas l'authentification Git HTTPS. Ne collez jamais de token dans une commande à projeter.</p>
+<p><strong>Attendu :</strong> votre dossier apparaît dans le fork sur GitHub, avec le dernier commit local. Rien n'est encore fusionné dans le dépôt de classe.</p>
+<h3>B. Ouvrir la PR de collecte · 12 minutes</h3>
+<p>Dans votre fork, utilisez <strong>Contribute &gt; Open pull request</strong>. Si ce bouton n'apparaît pas, ouvrez <strong>Pull requests &gt; New pull request</strong>, puis <strong>compare across forks</strong>.</p>
+<p>Vérifiez les quatre champs : <strong>base repository = AbidHamza/ensup-git-github-2026</strong>, <strong>base = main</strong>, <strong>head repository = votre fork</strong>, <strong>compare = main</strong>. Il est normal que les deux branches s'appellent main : elles appartiennent à deux dépôts différents.</p>
+<p>Titre : <code>Rendu IDENTIFIANT : journée des associations</code>. Dans la description, indiquez votre dossier, les ateliers terminés, le lien vers votre journal et un point à faire relire. Ouvrez la PR. Elle reste ouverte pendant les ateliers ; seul le formateur décide de son intégration finale.</p>
+<p><strong>Contrôle avant envoi :</strong> Files changed ne contient que votre dossier <code>rendus/IDENTIFIANT/</code>. N'envoyez pas de modification du README de classe, des supports ou du dossier d'un autre étudiant.</p>
+<h3>C. Constater la mise à jour automatique · 8 minutes</h3>
+<p>Ajoutez dans journal.md l'URL de cette PR et une explication de la différence entre fork, clone et branche. Commitez puis <code>git push origin main</code>. Actualisez l'onglet <strong>Commits</strong> de la PR : le nouveau commit y apparaît sans créer une deuxième PR de collecte.</p>
+<h3>D. Vérification croisée · 5 minutes</h3>
+<p>Ouvrez la PR de votre voisin depuis le dépôt <strong>AbidHamza</strong>. Vérifiez son auteur, son dossier et son dernier commit. Chaque étudiant doit pouvoir montrer ces trois preuves.</p>
+<h2>Enquête 3 : pourquoi mon push est refusé ? · 15 minutes</h2>
+<p>Sur papier, associez chaque message à un diagnostic et à une vérification, puis comparez en binôme. Il n'est pas demandé de provoquer un refus d'accès.</p>
+<ol>
+<li><code>Permission denied</code> : votre origin vise-t-il votre fork ou le dépôt du formateur ? Quel compte est connecté ?</li>
+<li><code>non-fast-forward</code> : des commits ont-ils été créés sur GitHub depuis votre dernier envoi ? Quelle commande récupère les repères sans fusionner ?</li>
+<li><code>nothing to commit</code> alors que le fichier paraît modifié : est-il enregistré, dans le bon dossier, ignoré ou déjà commité ?</li>
+</ol>
+<p>Répartition : 5 min de diagnostic individuel, 5 min de discussion, 5 min de mise en commun. Écrivez une commande de contrôle par cas dans votre carnet, puis commitez et poussez. Un push forcé n'est pas une réponse attendue.</p>
+<h2>TP 4 : faire relire une modification · 40 minutes</h2>
+<p>Chaque étudiant travaille dans <strong>son fork</strong>, tandis que son binôme le relit. Les deux font les étapes ci-dessous, puis inversent auteur et reviewer. Le reviewer n'a pas besoin d'être collaborateur pour commenter une PR publique ; l'auteur fusionne dans son propre fork.</p>
+<h3>A. Préparer une petite évolution · 10 minutes</h3>
+<p>Depuis votre dossier de rendu, sur main propre :</p>
+<pre><code class="language-bash">git switch -c feature/equipe
+</code></pre>
+<p>Créez equipe.md avec deux fonctions : « Accueil visiteurs » et « Coordination des salles ». Attribuez-les à des personnes fictives. Ajoutez aussi une consigne pour joindre l'accueil <strong>sur place</strong>, sans coordonnées réelles. Commitez le fichier puis poussez :</p>
+<pre><code class="language-bash">git add equipe.md
+git commit -m &quot;docs: repartir les roles de l accueil&quot;
+git push -u origin feature/equipe
+</code></pre>
+<h3>B. Ouvrir une PR interne à votre fork · 7 minutes</h3>
+<p>Dans GitHub, <strong>Pull requests &gt; New pull request</strong>. Attention : <strong>base repository et head repository doivent tous deux être VOTRE fork</strong>, base main, compare feature/equipe. Vérifiez ces champs même si GitHub propose le dépôt du formateur par défaut.</p>
+<p>Décrivez l'objectif, les fichiers modifiés et le contrôle effectué. Copiez l'URL pour votre binôme. Cette PR de travail est distincte de la PR de collecte restée ouverte chez AbidHamza.</p>
+<h3>C. Relire et corriger · 13 minutes</h3>
+<p>Le binôme ouvre Files changed et lit chaque ligne. Il rédige un commentaire exploitable : par exemple « Qui prend le relais si la coordination des salles est absente ? Ajoute une consigne précise. » Évitez « bien » ou « à améliorer » seuls. S'il démarre une revue, il termine par <strong>Review changes &gt; Comment &gt; Submit review</strong>.</p>
+<p>L'auteur complète equipe.md dans la <strong>même branche feature/equipe</strong>. Il commite la correction et refait <code>git push</code>. Il répond à la remarque avec ce qui a changé. Le reviewer vérifie le nouveau diff et laisse un commentaire de validation. Reproduisez cette revue dans l'autre sens sur la PR de votre binôme.</p>
+<h3>D. Fusionner dans votre fork et actualiser · 10 minutes</h3>
+<p>Le propriétaire du fork choisit <strong>Create a merge commit</strong> dans le menu du bouton de fusion et confirme. Conservez les commits individuels : n'utilisez pas Squash and merge pour ce rendu.</p>
+<pre><code class="language-bash">git switch main
+git pull --ff-only origin main
+git log -5 --oneline
+</code></pre>
+<p>Le fichier equipe.md est présent sur main local. La PR de collecte se met à jour puisque votre main distant a avancé. Ajoutez au journal les deux URLs (PR écrite et PR relue), le commentaire utile et le commit de correction ; commitez et poussez.</p>
+<h2>Retour collectif : une revue exploitable · 10 minutes</h2>
+<p>Chaque binôme choisit une remarque précise et montre le diff avant/après. Le formateur fait comparer une remarque sur le contenu à une préférence de présentation. Réussite : la correction répond réellement au problème soulevé et le lien avec le commit est visible.</p>
+<h2>TP 5  :  Le laboratoire des erreurs</h2>
+<p><strong>45 minutes · Individuel, puis explication croisée.</strong></p>
+<p>Le laboratoire est un sous-dossier de votre rendu. Ses commits seront donc également visibles dans votre PR de collecte. Revenez sur main avec un état propre avant de commencer. Les commandes de création de fichiers ci-dessous fonctionnent dans <strong>Git Bash</strong>. <code>&gt;</code> remplace le contenu : ne les exécutez que dans le laboratoire.</p>
+<h3>A. Préparer le laboratoire · 4 minutes</h3>
+<p>Depuis votre dossier rendus/IDENTIFIANT, dans le même dépôt que les TP précédents :</p>
+<pre><code class="language-bash">git switch main
+mkdir labo-conflit
+cd labo-conflit
+printf 'Accueil : 09h00\n' &gt; horaire.txt
+git add horaire.txt
+git commit -m &quot;init: horaire de reference&quot;
+</code></pre>
+<h3>B. Désindexer sans perdre · 5 minutes</h3>
+<pre><code class="language-bash">printf 'Note provisoire\n' &gt; brouillon.txt
+git add brouillon.txt
+git restore --staged brouillon.txt
+git status --short
+</code></pre>
+<p><strong>Attendu :</strong> <code>brouillon.txt</code> existe toujours et redevient non suivi. Pour la suite, préparez-le et commitez-le :</p>
+<pre><code class="language-bash">git add brouillon.txt
+git commit -m &quot;test: ajouter un brouillon&quot;
+</code></pre>
+<h3>C. Annuler le dernier commit · 5 minutes</h3>
+<pre><code class="language-bash">git revert --no-edit HEAD
+git log -3 --oneline
+git status
+</code></pre>
+<p><strong>Attendu :</strong> le fichier brouillon disparaît, le commit d'ajout reste dans l'historique et un nouveau commit inverse apparaît. Vous n'avez pas effacé l'histoire.</p>
+<h3>D. Créer deux propositions incompatibles · 8 minutes</h3>
+<pre><code class="language-bash">git switch -c feature/horaire
+printf 'Accueil : 10h00\n' &gt; horaire.txt
+git add horaire.txt
+git commit -m &quot;feat: proposer 10h00&quot;
+git switch main
+printf 'Accueil : 09h30\n' &gt; horaire.txt
+git add horaire.txt
+git commit -m &quot;docs: annoncer 09h30&quot;
+git merge feature/horaire
+</code></pre>
+<p><strong>Attendu :</strong> Git signale un conflit. C'est volontaire. <code>git status</code> indique un fichier non fusionné. Dans l'éditeur, <code>horaire.txt</code> contient les deux propositions et les marqueurs <code>&lt;&lt;&lt;&lt;&lt;&lt;&lt;</code>, <code>=======</code>, <code>&gt;&gt;&gt;&gt;&gt;&gt;&gt;</code>.</p>
+<h3>E. Décider et résoudre · 8 minutes</h3>
+<p>Le commanditaire valide <strong>09h45</strong>. Dans l'éditeur, remplacez tout le contenu par la ligne suivante et enregistrez :</p>
+<pre><code class="language-text">Accueil : 09h45
+</code></pre>
+<p>Puis :</p>
+<pre><code class="language-bash">git add horaire.txt
+git commit -m &quot;fix: convenir de 09h45&quot;
+git status
+git log --graph --oneline --all
+</code></pre>
+<p><strong>Attendu :</strong> dépôt propre, aucun marqueur restant, horaire validé. Le commit de fusion relie les deux histoires.</p>
+<h3>F. Expliquer · 5 minutes</h3>
+<p>Montrez le résultat à votre binôme. Répondez : pourquoi Git n'a-t-il pas choisi seul ? Quelle version était <code>HEAD</code> ? À quoi sert <code>git merge --abort</code> <strong>pendant</strong> une fusion en cours ?</p>
+<p><strong>Bonus guidé :</strong> sur une nouvelle modification locale jetable d'un fichier déjà suivi, comparez <code>git diff</code>, puis <code>git restore NOM_DU_FICHIER</code>. Cette dernière commande remplace le contenu de travail par celui de l'index par défaut : ne la lancez pas sur un travail à conserver.</p>
+<h3>G. Conserver les preuves et envoyer · 10 minutes</h3>
+<p>Avant de quitter le laboratoire, lancez <code>git log --graph --oneline --all</code> et <code>git show --no-patch --format="%h %p %s" HEAD</code>. Recopiez dans votre carnet les deux parents du commit de fusion. Puis revenez dans votre dossier de rendu avec <code>cd ..</code>. Complétez <code>journal.md</code> : erreur de départ, deux propositions, décision retenue, commandes de fin de fusion. Commitez le carnet puis <code>git push origin main</code>. Vérifiez que la PR de collecte contient aussi ces commits.</p>
+<p><strong>Contrôle oral :</strong> votre voisin désigne un commit du graphe ; expliquez son rôle sans relire les commandes du livret.</p>
+<h2>Incident distant : le programme modifié en ligne · 20 minutes</h2>
+<p>Restez dans votre dossier de rendu, sur main propre. Votre PR de collecte est toujours ouverte.</p>
+<ol>
+<li><strong>5 min :</strong> sur GitHub, dans votre fork et sur main, ouvrez votre programme.md, cliquez sur le crayon. Ajoutez « 12h00 : visite libre des stands, Hall A. » et commitez directement sur main. Si GitHub propose une branche, choisissez explicitement main. Ne lancez pas encore pull sur le PC.</li>
+<li><strong>5 min :</strong> localement, ajoutez « Prévoir une arrivée dix minutes avant le premier atelier. » à README.md et commitez. Un <code>git push origin main</code> est maintenant normalement refusé : les deux histoires ont avancé.</li>
+<li><strong>5 min :</strong> récupérez et observez avant d'intégrer :</li>
+</ol>
+<pre><code class="language-bash">git fetch origin
+git log --graph --oneline --all -10
+git merge origin/main -m &quot;merge: recuperer le programme publie en ligne&quot;
+git push origin main
+</code></pre>
+<ol>
+<li><strong>5 min :</strong> vérifiez la présence des deux changements sur GitHub. Écrivez dans journal.md pourquoi fetch seul n'aurait pas ajouté la visite libre à votre fichier local. Commitez et poussez cette explication.</li>
+</ol>
+<p><strong>Attendu :</strong> fusion sans conflit car les modifications portent sur des fichiers différents. Si une autre erreur apparaît, relevez le message exact avec le formateur avant de continuer. Ne forcez pas le push.</p>
+<h2>Mission finale : une version utilisable · 75 minutes</h2>
+<p>Le secrétariat vous demande une version prête à remettre aux visiteurs. Vous reprenez votre propre dossier. Votre binôme est votre relecteur ; chacun doit produire une nouvelle PR de travail dans son fork, différente de celle du TP 4.</p>
+<h3>Cahier des charges</h3>
+<ol>
+<li>README.md : objectif, consignes d'arrivée et liens Markdown fonctionnels vers programme, accès et équipe.</li>
+<li>programme.md : au moins cinq créneaux ordonnés, une activité et un lieu pour chaque créneau, aucun chevauchement pour un même parcours visiteur.</li>
+<li>acces.md : point de rendez-vous, chemin vers l'accueil, solution si l'entrée habituelle est fermée.</li>
+<li>equipe.md : fonctions, relais en cas d'absence, consigne de contact sur place.</li>
+<li>journal.md : preuves des ateliers, URLs de vos PR, revue effectuée, problème rencontré, diagnostic et solution.</li>
+</ol>
+<h3>Étape 1 : découper la demande · 10 minutes</h3>
+<p>Dans votre fork, créez une issue (Issues &gt; New issue) nommée « Préparer la version visiteurs ». Activez Issues dans Settings &gt; General &gt; Features si nécessaire. Écrivez trois critères vérifiables tirés du cahier des charges. Depuis main actualisé et propre, créez <code>feature/livraison</code>. Notez le numéro de l'issue.</p>
+<h3>Étape 2 : réaliser et vérifier · 20 minutes</h3>
+<p>Modifiez les documents. Faites au moins deux commits cohérents : un pour le parcours et les horaires, un pour les consignes et les liens. Avant chaque commit, relisez <code>git diff --cached</code>. Ouvrez les fichiers sur GitHub après push et testez chaque lien du README.</p>
+<h3>Étape 3 : demander une revue · 15 minutes</h3>
+<p>Ouvrez une PR <strong>dans votre fork</strong>, de feature/livraison vers main. Mentionnez <code>Closes #NUMERO</code> avec le numéro de votre issue. Le binôme teste votre parcours : peut-il trouver où se présenter, quoi faire si l'entrée est fermée et à qui demander de l'aide ? Il commente au moins une ligne. Faites de même pour sa PR.</p>
+<h3>Étape 4 : traiter le changement du commanditaire · 15 minutes</h3>
+<p>À la minute 45, le formateur annonce un changement. Notez-le dans la PR, adaptez tous les fichiers concernés et ajoutez un commit de correction sur la même branche. Demandez au binôme une seconde lecture. Il vérifie notamment que README et programme ne se contredisent plus.</p>
+<h3>Étape 5 : livrer et rendre · 15 minutes</h3>
+<p>Fusionnez dans votre fork avec Create a merge commit. Revenez sur main et <code>git pull --ff-only origin main</code>. Complétez le journal, commitez et poussez. Créez un tag annoté pour retrouver la livraison :</p>
+<pre><code class="language-bash">git tag -a v1.0 -m &quot;Version visiteurs relue&quot;
+git push origin v1.0
+git status
+</code></pre>
+<p>Ouvrez la PR de collecte sur le dépôt du formateur. Son onglet Commits doit montrer tout votre travail, y compris les corrections, le laboratoire et la fusion finale. Complétez la description de la PR avec les liens vers vos deux PR de travail, la revue du binôme et le tag de votre fork. <strong>Ne fusionnez pas cette PR : le formateur la relit.</strong> Le tag reste dans votre fork ; le lien permet de le retrouver.</p>
+<h3>Contrôle de rendu individuel</h3>
+<p>Votre dossier doit contenir README.md, programme.md, acces.md, accessibilite.md, equipe.md, journal.md, .gitignore et labo-conflit/horaire.txt. Le fichier .env est uniquement un exemple local ignoré. La PR doit permettre de retrouver au minimum trois commits de contenu, deux corrections après revue, un revert et un commit de résolution du conflit. Ne réécrivez pas les anciens commits pour gonfler artificiellement le nombre.</p>
+<p>Dans le carnet, répondez en quelques phrases : que copie add ? Comment prouver qu'un commit a été poussé ? Pourquoi Git n'a-t-il pas choisi l'horaire ? Que reste-t-il après revert ? Montrez un diff dont vous êtes l'auteur.</p>
+<h2>QCM et explication · 30 minutes</h2>
+<p>Ouvrez https://abid-hamza.com/ensup-git/qcm/ et saisissez votre identifiant GitHub pour que le formateur puisse rapprocher copie et rendu. Répondez individuellement aux 20 questions pendant 20 minutes, sans mémo. Validez la copie et conservez son numéro de réception. En cas de réseau indisponible, utilisez QUIZ-ETUDIANT.pdf et remettez la copie au formateur.</p>
+<p>Pendant les 10 dernières minutes, chacun explique à son binôme un diff et un incident. Le formateur vérifie les preuves individuellement au fil des TP et complète les contrôles manquants. Le QCM ne remplace pas la réalisation des manipulations.</p>
+<h2>Pour ceux qui terminent plus tôt</h2>
+<p>Après validation des preuves obligatoires : préparez une petite modification de README, utilisez <code>git stash push -m "consigne en cours"</code>, observez status, puis <code>git stash pop</code> ; commitez le résultat utile. Comparez <code>git show v1.0:README.md</code> depuis la racine avec <code>git show v1.0:rendus/IDENTIFIANT/README.md</code> : le premier désigne le README de classe. Expliquez l'importance du chemin. Ces exercices occupent 15 à 20 minutes sans ajouter de notions à l'évaluation.</p>
+<h2>Références utiles</h2>
+<p>Commandes : https://git-scm.com/docs</p>
+<p>Fork et clone : https://docs.github.com/en/pull-requests/how-tos/work-with-forks/fork-a-repo</p>
+<p>Revue : https://docs.github.com/en/pull-requests</p></html>
