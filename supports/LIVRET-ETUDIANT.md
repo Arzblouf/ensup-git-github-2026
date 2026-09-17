@@ -1,10 +1,10 @@
 # Git et GitHub : carnet de travaux pratiques
 
-ENSUP Business School · Bachelor · 17 septembre 2026
+ENSUP Business School · Bachelor
 
-## Le projet : organiser la journée des associations
+## Le projet : organiser le forum des associations
 
-Vous préparez le dossier d'accueil d'une journée des associations ENSUP. Un nouvel étudiant doit y trouver où aller, à quelle heure et qui contacter. Le programme initial est incomplet : il manque un plan de repli, des indications d'accès et une vérification des horaires. Vous devrez aussi traiter une modification demandée en cours de journée.
+Vous préparez le dossier d'accueil d'un forum des associations ENSUP. Un nouvel étudiant doit y trouver où aller, à quelle heure et qui contacter. Le programme initial est incomplet : il manque un plan de repli, des indications d'accès et une vérification des horaires. Vous devrez aussi traiter une modification demandée en cours de projet.
 
 Vous produisez des fichiers Markdown, lisibles dans GitHub. Aucun framework n'est nécessaire. Les compétences évaluées portent sur les versions, les branches, la collaboration et le diagnostic. Votre binôme relit vos propositions ; chacun conserve son historique personnel et rend son propre travail.
 
@@ -19,7 +19,7 @@ Vous produisez des fichiers Markdown, lisibles dans GitHub. Aucun framework n'es
 7. Livraison d'une version : 75 min (mission avec changement de consigne et preuves individuelles).
 8. QCM et explication individuelle : 30 min (20 min de QCM, 10 min d'explications croisées).
 
-Total : 480 minutes, hors pauses. Chaque durée comprend lecture, manipulation, contrôle et explication. Les activités d'enquête font partie de la journée ; ce ne sont pas des bonus facultatifs.
+Total : 480 minutes, hors pauses. Chaque durée comprend lecture, manipulation, contrôle et explication. Les activités d'enquête font partie du module ; ce ne sont pas des bonus facultatifs.
 
 ## Les trois adresses à utiliser
 
@@ -74,7 +74,7 @@ cd rendus/IDENTIFIANT
 Gardez ce dossier courant pour les TP, sauf indication explicite. Dans l'éditeur, créez votre `README.md` dans ce dossier avec :
 
 ```markdown
-# Journée des associations ENSUP
+# Forum des associations ENSUP
 Un guide pour préparer sa première visite sur le campus.
 ```
 
@@ -99,7 +99,7 @@ Créez aussi `journal.md` : titre « Carnet de bord », identifiant GitHub, puis
 ```bash
 git add README.md
 git diff --cached
-git commit -m "docs: presenter la journée ENSUP"
+git commit -m "docs: presenter le forum ENSUP"
 git log --oneline
 git status
 ```
@@ -279,7 +279,7 @@ Dans votre fork, utilisez **Contribute > Open pull request**. Si ce bouton n'app
 
 Vérifiez les quatre champs : **base repository = AbidHamza/ensup-git-github-2026**, **base = main**, **head repository = votre fork**, **compare = main**. Il est normal que les deux branches s'appellent main : elles appartiennent à deux dépôts différents.
 
-Titre : `Rendu IDENTIFIANT : journée des associations`. Dans la description, indiquez votre dossier, les ateliers terminés, le lien vers votre journal et un point à faire relire. Ouvrez la PR. Elle reste ouverte pendant les ateliers ; seul le formateur décide de son intégration finale.
+Titre : `Rendu IDENTIFIANT : forum des associations`. Dans la description, indiquez votre dossier, les ateliers terminés, le lien vers votre journal et un point à faire relire. Ouvrez la PR. Elle reste ouverte pendant les ateliers ; seul le formateur décide de son intégration finale.
 
 **Contrôle avant envoi :** Files changed ne contient que votre dossier `rendus/IDENTIFIANT/`. N'envoyez pas de modification du README de classe, des supports ou du dossier d'un autre étudiant.
 

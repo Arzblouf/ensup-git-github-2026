@@ -1,7 +1,7 @@
 <!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>LIVRET-ETUDIANT</title><style>*{box-sizing:border-box}body{max-width:880px;margin:35px auto;padding:22px;font:18px/1.65 Arial;color:#17333d;background:#f5f7fa}h1,h2{color:#147fa6}h2{margin-top:2em}pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#e5f1f6;padding:18px;border-radius:6px;font-size:15px}code{font-family:Consolas,monospace}a{color:#147fa6;overflow-wrap:anywhere}img{max-width:100%;height:auto}@media print{body{margin:0;background:white}}</style></head><body><img src="visuels/logo-ensup.png" alt="ENSUP Business School" width="180"><h1>Git et GitHub : carnet de travaux pratiques</h1>
-<p>ENSUP Business School · Bachelor · 17 septembre 2026</p>
-<h2>Le projet : organiser la journée des associations</h2>
-<p>Vous préparez le dossier d'accueil d'une journée des associations ENSUP. Un nouvel étudiant doit y trouver où aller, à quelle heure et qui contacter. Le programme initial est incomplet : il manque un plan de repli, des indications d'accès et une vérification des horaires. Vous devrez aussi traiter une modification demandée en cours de journée.</p>
+<p>ENSUP Business School · Bachelor</p>
+<h2>Le projet : organiser le forum des associations</h2>
+<p>Vous préparez le dossier d'accueil d'un forum des associations ENSUP. Un nouvel étudiant doit y trouver où aller, à quelle heure et qui contacter. Le programme initial est incomplet : il manque un plan de repli, des indications d'accès et une vérification des horaires. Vous devrez aussi traiter une modification demandée en cours de projet.</p>
 <p>Vous produisez des fichiers Markdown, lisibles dans GitHub. Aucun framework n'est nécessaire. Les compétences évaluées portent sur les versions, les branches, la collaboration et le diagnostic. Votre binôme relit vos propositions ; chacun conserve son historique personnel et rend son propre travail.</p>
 <h2>Le parcours : 8 heures de travail</h2>
 <ol>
@@ -14,7 +14,7 @@
 <li>Livraison d'une version : 75 min (mission avec changement de consigne et preuves individuelles).</li>
 <li>QCM et explication individuelle : 30 min (20 min de QCM, 10 min d'explications croisées).</li>
 </ol>
-<p>Total : 480 minutes, hors pauses. Chaque durée comprend lecture, manipulation, contrôle et explication. Les activités d'enquête font partie de la journée ; ce ne sont pas des bonus facultatifs.</p>
+<p>Total : 480 minutes, hors pauses. Chaque durée comprend lecture, manipulation, contrôle et explication. Les activités d'enquête font partie du module ; ce ne sont pas des bonus facultatifs.</p>
 <h2>Les trois adresses à utiliser</h2>
 <p>Dépôt de classe : https://github.com/AbidHamza/ensup-git-github-2026</p>
 <p>QCM : https://abid-hamza.com/ensup-git/qcm/</p>
@@ -45,7 +45,7 @@ git status
 cd rendus/IDENTIFIANT
 </code></pre>
 <p>Gardez ce dossier courant pour les TP, sauf indication explicite. Dans l'éditeur, créez votre <code>README.md</code> dans ce dossier avec :</p>
-<pre><code class="language-markdown"># Journée des associations ENSUP
+<pre><code class="language-markdown"># Forum des associations ENSUP
 Un guide pour préparer sa première visite sur le campus.
 </code></pre>
 <p>Créez aussi <code>journal.md</code> : titre « Carnet de bord », identifiant GitHub, puis une rubrique « Mes preuves ». Vous compléterez ce carnet après chaque atelier avec les commandes observées et vos explications. N'y mettez pas les réponses au QCM.</p>
@@ -63,7 +63,7 @@ Un guide pour préparer sa première visite sur le campus.
 </ol>
 <pre><code class="language-bash">git add README.md
 git diff --cached
-git commit -m &quot;docs: presenter la journée ENSUP&quot;
+git commit -m &quot;docs: presenter le forum ENSUP&quot;
 git log --oneline
 git status
 </code></pre>
@@ -175,7 +175,7 @@ git push -u origin main
 <h3>B. Ouvrir la PR de collecte · 12 minutes</h3>
 <p>Dans votre fork, utilisez <strong>Contribute &gt; Open pull request</strong>. Si ce bouton n'apparaît pas, ouvrez <strong>Pull requests &gt; New pull request</strong>, puis <strong>compare across forks</strong>.</p>
 <p>Vérifiez les quatre champs : <strong>base repository = AbidHamza/ensup-git-github-2026</strong>, <strong>base = main</strong>, <strong>head repository = votre fork</strong>, <strong>compare = main</strong>. Il est normal que les deux branches s'appellent main : elles appartiennent à deux dépôts différents.</p>
-<p>Titre : <code>Rendu IDENTIFIANT : journée des associations</code>. Dans la description, indiquez votre dossier, les ateliers terminés, le lien vers votre journal et un point à faire relire. Ouvrez la PR. Elle reste ouverte pendant les ateliers ; seul le formateur décide de son intégration finale.</p>
+<p>Titre : <code>Rendu IDENTIFIANT : forum des associations</code>. Dans la description, indiquez votre dossier, les ateliers terminés, le lien vers votre journal et un point à faire relire. Ouvrez la PR. Elle reste ouverte pendant les ateliers ; seul le formateur décide de son intégration finale.</p>
 <p><strong>Contrôle avant envoi :</strong> Files changed ne contient que votre dossier <code>rendus/IDENTIFIANT/</code>. N'envoyez pas de modification du README de classe, des supports ou du dossier d'un autre étudiant.</p>
 <h3>C. Constater la mise à jour automatique · 8 minutes</h3>
 <p>Ajoutez dans journal.md l'URL de cette PR et une explication de la différence entre fork, clone et branche. Commitez puis <code>git push origin main</code>. Actualisez l'onglet <strong>Commits</strong> de la PR : le nouveau commit y apparaît sans créer une deuxième PR de collecte.</p>

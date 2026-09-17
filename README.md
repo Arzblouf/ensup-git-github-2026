@@ -2,9 +2,9 @@
 
 # ENSUP : Git et GitHub
 
-Journée du 17 septembre 2026 · Bachelor · Hamza Abid
+Module de formation · Bachelor · Hamza Abid
 
-Ce dépôt reçoit les travaux pratiques de la journée des associations.
+Ce dépôt reçoit les travaux pratiques du forum des associations.
 
 1. Créez un fork dans votre compte, puis clonez votre fork.
 2. Travaillez uniquement dans `rendus/VOTRE_IDENTIFIANT/`.

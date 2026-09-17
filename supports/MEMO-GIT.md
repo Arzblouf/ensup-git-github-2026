@@ -2,7 +2,7 @@
 
 ENSUP Business School · Git Bash · Les noms en MAJUSCULES sont à remplacer
 
-Pour cette journée : cloner votre fork, puis travailler dans rendus/IDENTIFIANT. origin désigne votre fork ; upstream désigne le dépôt AbidHamza/ensup-git-github-2026. Le clone contient déjà l'historique initial.
+Pour ce module : cloner votre fork, puis travailler dans rendus/IDENTIFIANT. origin désigne votre fork ; upstream désigne le dépôt AbidHamza/ensup-git-github-2026. Le clone contient déjà l'historique initial.
 
 ## Le cycle local
 
