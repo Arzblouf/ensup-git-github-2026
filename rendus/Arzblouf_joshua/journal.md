@@ -26,10 +26,13 @@ Preuve :
     Commit retrouvé par -> git show (qui m'affiche le dernier commit)
 
 ### TP 2
--> il faut être sur la branche main et la commande "git log --oneline" permet de vérifier le contenu et sa branche d'origine.
+Prédiction main : programme.md sera absent car le commit n'existe que sur la branche feature/programme
+-> Après la fusion, le fichier est présent.
+-> Il faut être sur la branche main pour intégrer une évolution dans main et la commande "git log --oneline" permet de vérifier le contenu et sa branche d'origine.
 
 ### Enquête 2
 -> Lors que l'on modifie un fichier sur une branche différente, il n'y a pas de conflit pendant le merge car les 2 fichiers sont différents. Il y aurait eut un conflit de versions si le même fichier était modifié dans 2 branches différentes avant le merge.
+-> Les deux parents sont main et feature/accessibilite
 
 ### TP 3
 -> git remote -v : origine est bien Arzblouf (mon compte). 
