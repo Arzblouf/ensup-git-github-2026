@@ -57,3 +57,6 @@ Erreur de départ : conflit entre la branche main avec horaire.txt à 09h30 et l
 
 ### Incident distant
 -> git fetch télécharge seulement les nouveaux commit et met à jour origine/main sans modifier la branche locale ni les fichiers. Puis on merge pour intégrer la visite libre dans programe.md local.
+
+### Version finale
+URL de l'issue : https://github.com/Arzblouf/ensup-git-github-2026/issues/2
