@@ -36,5 +36,5 @@ Prédiction main : programme.md sera absent car le commit n'existe que sur la br
 
 ### TP 3
 -> git remote -v : origine est bien Arzblouf (mon compte). 
-URL PR : 
+URL PR : https://github.com/AbidHamza/ensup-git-github-2026/pull/2
 Différence : un fork est une copie d'un dépôt Github sur mon compte, un clone est une copie d'un dépôt sur mon pc et une branche est une ligne de développement à l'intérieur d'un dépôt
