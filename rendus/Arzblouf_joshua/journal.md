@@ -46,3 +46,12 @@ Différence : un fork est une copie d'un dépôt Github sur mon compte, un clone
 
 ### TP 4
 URL de la PR : https://github.com/Arzblouf/ensup-git-github-2026/pull/1
+
+### TP 5
+-> Les 2 branches ont modifiées la même ligne différement depuis un ancêtre commun, Git ne peut donc savoir laquelle est la valeur correcte.
+-> HEAD était la version de la branche main (09h30).
+-> git merge --abort sert à annuler une fusion en cours pour revenir à l'état d'avant et donc éviter un conflit.
+
+Erreur de départ : conflit entre la branche main avec horaire.txt à 09h30 et la branche feature/equipe avec horaire.txt à 10h00.
+-> décision de horaire.txt à 09h45
+
