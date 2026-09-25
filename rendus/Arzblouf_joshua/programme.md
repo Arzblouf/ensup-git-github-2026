@@ -3,3 +3,4 @@
 10h00 : découverte des associations : Salle 1
 11h00 : atelier découverte : Salle 2
 12h00 : visite libre des stands, Hall A
+15h00 : remise des inscriptions : Accueil
