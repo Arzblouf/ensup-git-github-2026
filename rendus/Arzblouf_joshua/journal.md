@@ -38,3 +38,11 @@ Prédiction main : programme.md sera absent car le commit n'existe que sur la br
 -> git remote -v : origine est bien Arzblouf (mon compte). 
 URL PR : https://github.com/AbidHamza/ensup-git-github-2026/pull/2
 Différence : un fork est une copie d'un dépôt Github sur mon compte, un clone est une copie d'un dépôt sur mon pc et une branche est une ligne de développement à l'intérieur d'un dépôt
+
+### Enquête 3
+-> Permission denied : connexion avec un autre compte : vérifierque git remote -v montre son pseudo
+-> non-fast-forward : github contient des commits que je n'ai pas sur ma machine (commit en ligne par exemple) : utiliser git fetch origin pour récupérer sans fusionner puis git merge origin main
+-> nothing to commit : fichier non enregistré, ignoré ou mauvais dossier : vérifier que l'éditeur ai bien enregistré les modifications, git check-ignore pour vérifié s'il est ignoré ou ls pour vérifier qu'il s'agit du bon fichier
+
+### TP 4
+URL de la PR : https://github.com/Arzblouf/ensup-git-github-2026/pull/1
