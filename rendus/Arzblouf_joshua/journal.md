@@ -55,3 +55,5 @@ URL de la PR : https://github.com/Arzblouf/ensup-git-github-2026/pull/1
 Erreur de départ : conflit entre la branche main avec horaire.txt à 09h30 et la branche feature/equipe avec horaire.txt à 10h00.
 -> décision de horaire.txt à 09h45
 
+### Incident distant
+-> git fetch télécharge seulement les nouveaux commit et met à jour origine/main sans modifier la branche locale ni les fichiers. Puis on merge pour intégrer la visite libre dans programe.md local.
