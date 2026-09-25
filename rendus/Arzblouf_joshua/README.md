@@ -6,3 +6,5 @@ Entrée gratuite.
 Inscription sur place.
 
  Accueil des visiteurs à partir de 09h00
+
+ Prévoir une arrivée di minutes avant le premier atelier.
